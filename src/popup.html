@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Tab Markdown</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- コピーボタンセクション -->
+    <div class="copy-buttons-section">
+      <button id="currentTab" class="copy-action-button" data-target="current">
+        <span class="button-icon">📄</span>
+        <span class="button-text">現在のタブをコピー</span>
+      </button>
+      <button id="allTabs" class="copy-action-button" data-target="all">
+        <span class="button-icon">📑</span>
+        <span class="button-text">全てのタブをコピー</span>
+      </button>
+      <button id="selectedTabs" class="copy-action-button" data-target="selected">
+        <span class="button-icon">✅</span>
+        <span class="button-text">選択中のタブをコピー</span>
+      </button>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <!-- 設定セクション -->
+    <div class="settings-section">
+      <details open>
+        <summary>⚙️ 設定</summary>
+        
+        <div class="setting-group">
+          <label class="setting-label">コピー内容</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="copyType" value="title" checked>
+              <span>タイトルのみ</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="copyType" value="url">
+              <span>URLのみ</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="copyType" value="link">
+              <span>Markdownリンク</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">出力形式</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="format" value="list" checked>
+              <span>リスト形式</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="format" value="plain">
+              <span>改行のみ</span>
+            </label>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
